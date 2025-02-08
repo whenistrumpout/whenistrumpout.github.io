@@ -13,6 +13,8 @@
     <style>
         body {
             display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
             background-color: #121212;
             color: white;
@@ -20,10 +22,6 @@
             margin: 0;
         }
         .countdown-container {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-size: 8rem;
             font-weight: bold;
             text-align: center;
@@ -35,15 +33,10 @@
     <div id="countdown"></div>
 </div>
 <script>
-
-
-            updateCountdown();
-
     function updateCountdown() {
         const targetDate = new Date("2029-01-20T23:59:00Z");
-        const now = new Date().toLocaleString("en-US", { timeZone:timeZone });
-        const nowDate = new Date(now);
-        const difference = targetDate - nowDate;
+        const now = new Date();
+        const difference = targetDate - now;
 
         if (difference <= 0) {
             document.getElementById("countdown").innerHTML = "Time's up!";
