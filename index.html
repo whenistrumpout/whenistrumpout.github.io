@@ -35,28 +35,13 @@
     <div id="countdown"></div>
 </div>
 <script>
-    const timezones = [
-        "UTC", "America/New_York", "America/Los_Angeles", "Europe/London", "Europe/Berlin",
-        "Asia/Tokyo", "Australia/Sydney", "America/Chicago", "America/Denver", "Asia/Dubai",
-        "Asia/Kolkata", "Europe/Paris", "Europe/Moscow", "America/Sao_Paulo", "Africa/Johannesburg"
-    ];
 
-    const timezoneOptionsContainer = document.getElementById("timezone-options");
-    let selectedTimezone = "UTC";
 
-    timezones.forEach(zone => {
-        const button = document.createElement("button");
-        button.innerText = zone;
-        button.onclick = () => {
-            selectedTimezone = zone;
             updateCountdown();
-        };
-        timezoneOptionsContainer.appendChild(button);
-    });
 
     function updateCountdown() {
         const targetDate = new Date("2029-01-20T23:59:00Z");
-        const now = new Date().toLocaleString("en-US", { timeZone: selectedTimezone });
+        const now = new Date().toLocaleString("en-US", { timeZone:timeZone });
         const nowDate = new Date(now);
         const difference = targetDate - nowDate;
 
